@@ -12,7 +12,7 @@
       </ul>
       <form class="d-flex">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
+        <%= link_to "Search", new_list_path, class: "btn btn-outline-success"%>
       </form>
     </div>
   </div>
@@ -24,7 +24,7 @@
       <%= link_to list_path(list) do%>
             <div class="my-btn btn-outline-secondary w-100">
               <% if list.photo.attached? %>
-                <%= cl_image_tag list.photo.key, crop: :fill, class: "w-100" %>
+                <%= cl_image_tag list.photo.key, crop: :fill, style: "width: 254px; height: 169px;"%>
               <% end %>
               <p class="fw-bolder mt-3"><%= list.name %></p>
             </div>
