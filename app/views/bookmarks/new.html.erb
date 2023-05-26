@@ -1,7 +1,7 @@
 <h1>Add movie</h1>
 
 <%= simple_form_for [@list, @bookmark] do |f| %>
-  <%= f.input :comment %>
   <%= f.association :movie, collection: Movie.all.order(:title) %>
-  <%= f.submit %>
+  <%= link_to "Cancel", :back, {class: "btn btn-outline-secondary m-auto"} %>
+  <%= f.submit 'Add', class: "btn btn-outline-secondary m-auto"%>
 <% end %>
