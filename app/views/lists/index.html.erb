@@ -1,35 +1,37 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark mt-3">
-  <div class="container-fluid">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-      <a class="navbar-brand" href="#">My Lists</a>
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <%= link_to "Create list", new_list_path, class: "nav-link"%>
-        </li>
-      </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <%= link_to "Search", new_list_path, class: "btn btn-outline-success"%>
-      </form>
+<div class="border border-3 rounded-4 mt-3 mb-3" id="show-list-page">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark nav-rounded">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+        <a class="navbar-brand" href="#">My Lists</a>
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <%= link_to "Create list", new_list_path, class: "nav-link"%>
+          </li>
+        </ul>
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <%= link_to "Search", new_list_path, class: "btn btn-outline-success"%>
+        </form>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
 
-  <div class="my-row justify-content-center p-3">
-    <% @lists.each do |list| %>
-          <div class="card m-2" style="width: 16rem;">
-      <%= link_to list_path(list) do%>
-            <div class="my-btn btn-outline-secondary w-100">
-              <% if list.photo.attached? %>
-                <%= cl_image_tag list.photo.key, crop: :fill, style: "width: 254px; height: 169px;"%>
-              <% end %>
-              <p class="fw-bolder mt-3"><%= list.name %></p>
+    <div class="my-row justify-content-center p-3">
+      <% @lists.each do |list| %>
+            <div class="card m-2" style="width: 16rem;">
+        <%= link_to list_path(list) do%>
+              <div class="my-btn btn-outline-secondary w-100">
+                <% if list.photo.attached? %>
+                  <%= cl_image_tag list.photo.key, crop: :fill, style: "width: 254px; height: 169px;"%>
+                <% end %>
+                <p class="fw-bolder mt-3"><%= list.name %></p>
+              </div>
+        <% end %>
             </div>
       <% end %>
-          </div>
-    <% end %>
+    </div>
   </div>
 </div>
