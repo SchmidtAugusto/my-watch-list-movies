@@ -73,3 +73,5 @@ gem "simple_form"
 gem "middleman-aria_current"
 
 gem "dotenv-rails", groups: [:development, :test]
+
+gem "cloudinary"
